@@ -1,0 +1,4 @@
+Microsoft.EntityFrameworkCore
+Npgsql.EntityFrameworkCore.PostgreSQL
+EFCore.NamingConventions
+Microsoft.EntityFrameworkCore.Design

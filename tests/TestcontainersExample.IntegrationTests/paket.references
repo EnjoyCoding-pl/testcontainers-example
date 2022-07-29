@@ -1,0 +1,5 @@
+xUnit
+FluentAssertions
+moq
+Microsoft.NET.Test.SDK
+Testcontainers

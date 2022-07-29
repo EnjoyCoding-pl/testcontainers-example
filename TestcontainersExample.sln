@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersExample.Api", "src\TestcontainersExample.Api\TestcontainersExample.Api.csproj", "{1A332F08-1505-41E9-BB58-035A99DF9B39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersExample.IntegrationTests", "tests\TestcontainersExample.IntegrationTests\TestcontainersExample.IntegrationTests.csproj", "{876E92A9-06F3-4E2C-A8D1-4C19D5C07083}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A332F08-1505-41E9-BB58-035A99DF9B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A332F08-1505-41E9-BB58-035A99DF9B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A332F08-1505-41E9-BB58-035A99DF9B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A332F08-1505-41E9-BB58-035A99DF9B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876E92A9-06F3-4E2C-A8D1-4C19D5C07083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876E92A9-06F3-4E2C-A8D1-4C19D5C07083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876E92A9-06F3-4E2C-A8D1-4C19D5C07083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876E92A9-06F3-4E2C-A8D1-4C19D5C07083}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
