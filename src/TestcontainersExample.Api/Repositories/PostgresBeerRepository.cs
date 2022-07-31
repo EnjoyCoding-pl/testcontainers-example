@@ -26,7 +26,8 @@ public class PostgresBeerRepository : IBeerRepository
 
     public async Task Delete(int id, CancellationToken cancellationToken = default)
     {
-        _postgresDbContext.Beers.Remove(new Beer { Id = id });
+        var beer = await _postgresDbContext.Beers.FindAsync(id);
+        _postgresDbContext.Beers.Remove(beer);
         await _postgresDbContext.SaveChangesAsync(cancellationToken);
     }
 }

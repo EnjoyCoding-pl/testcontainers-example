@@ -12,3 +12,4 @@ nuget Npgsql.EntityFrameworkCore.PostgreSQL
 nuget EFCore.NamingConventions
 nuget Testcontainers
 nuget Microsoft.EntityFrameworkCore.Design
+nuget Swashbuckle.AspNetCore

@@ -1,6 +1,7 @@
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using TestcontainersExample.Api.Context;
 using TestcontainersExample.Api.Models;
@@ -27,6 +28,28 @@ public class BeerRepositoryTests : IAsyncLifetime
     {
         var repository = new PostgresBeerRepository(_sharedDbContext);
         await repository.Add(new Beer { Name = "Paulaner" });
+    }
+
+    [Fact]
+    public async Task GetById_ReturnsBeer()
+    {
+        var addedBeer = _sharedDbContext.Add(new Beer { Name = "Tyskie" });
+        await _sharedDbContext.SaveChangesAsync();
+
+        var repository = new PostgresBeerRepository(_sharedDbContext);
+        var beer = await repository.GetById(addedBeer.Entity.Id);
+
+        beer.Name.Should().Be("Tyskie");
+    }
+
+    [Fact]
+    public async Task Delete_CompleteWithoutErrors()
+    {
+        var addedBeer = _sharedDbContext.Add(new Beer { Name = "Heineken" });
+        await _sharedDbContext.SaveChangesAsync();
+
+        var repository = new PostgresBeerRepository(_sharedDbContext);
+        await repository.Delete(addedBeer.Entity.Id);
     }
 
     public async Task InitializeAsync()
