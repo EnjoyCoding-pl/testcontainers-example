@@ -13,3 +13,4 @@ nuget EFCore.NamingConventions
 nuget Testcontainers
 nuget Microsoft.EntityFrameworkCore.Design
 nuget Swashbuckle.AspNetCore
+nuget Microsoft.Extensions.Caching.StackExchangeRedis

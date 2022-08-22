@@ -13,6 +13,7 @@ namespace TestcontainersExample.Api.IntegrationTests;
 public class BeerRepositoryTests : IAsyncLifetime
 {
     private readonly TestcontainerDatabase _database = new TestcontainersBuilder<PostgreSqlTestcontainer>()
+        .WithCleanUp(true)
         .WithDatabase(new PostgreSqlTestcontainerConfiguration
         {
             Database = "test",

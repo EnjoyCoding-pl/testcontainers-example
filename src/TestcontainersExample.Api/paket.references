@@ -3,3 +3,4 @@ Npgsql.EntityFrameworkCore.PostgreSQL
 EFCore.NamingConventions
 Microsoft.EntityFrameworkCore.Design
 Swashbuckle.AspNetCore
+Microsoft.Extensions.Caching.StackExchangeRedis

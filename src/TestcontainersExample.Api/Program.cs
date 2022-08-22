@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using TestcontainersExample.Api.Context;
+using TestcontainersExample.Api.Decorators;
 using TestcontainersExample.Api.Models;
 using TestcontainersExample.Api.Repositories;
 
@@ -12,7 +14,18 @@ builder.Services.AddDbContextPool<PostgresDbContext>(options =>
 );
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IBeerRepository, PostgresBeerRepository>();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.InstanceName = "TestcontainersExample";
+    options.Configuration = builder.Configuration.GetConnectionString("redis");
+});
+builder.Services.AddTransient<PostgresBeerRepository>();
+builder.Services.AddScoped<IBeerRepository>(serviceProvider =>
+{
+    var cache = serviceProvider.GetRequiredService<IDistributedCache>();
+    var repository = serviceProvider.GetRequiredService<PostgresBeerRepository>();
+    return new BeerRepositoryCacheDecorator(repository, cache);
+});
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
